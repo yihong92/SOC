@@ -1,0 +1,86 @@
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xuartps.h"
+#include "xil_printf.h"
+#include "sleep.h"
+#include <stdlib.h>  // 加入此標頭檔以使用 atoi 和 strtol
+#include <string.h>  // 加入此標頭檔以使用 memset
+
+#define LED_DEVICE_ID  XPAR_AXI_GPIO_0_DEVICE_ID
+#define LED_CHANNEL 1
+#define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+
+XGpio Gpio;  // GPIO object
+XUartPs UartPs;  // UART object
+
+int main() {
+    int status;
+    u8 blink_count = 0;
+    u8 led_pattern = 0;
+    u8 i;
+    u8 rx_buffer[10];  // 接收緩衝區
+
+    // 初始化 UART
+    XUartPs_Config *UartConfig = XUartPs_LookupConfig(XPAR_PS7_UART_1_DEVICE_ID);
+    status = XUartPs_CfgInitialize(&UartPs, UartConfig, UartConfig->BaseAddress);
+    if (status != XST_SUCCESS) {
+        xil_printf("UART initialization failed!\n");
+        return XST_FAILURE;
+    }
+
+    // 初始化 GPIO
+    status = XGpio_Initialize(&Gpio, LED_DEVICE_ID);
+    if (status != XST_SUCCESS) {
+        xil_printf("GPIO initialization failed!\n");
+        return XST_FAILURE;
+    }
+    XGpio_SetDataDirection(&Gpio, LED_CHANNEL, 0x00); // 設定 LED 為輸出
+
+    // 初始 LED 全亮
+    XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0xFF);
+    xil_printf("LED initial state: All ON (0xFF)\n");
+
+    while (1) {
+        // 輸入閃爍次數
+        xil_printf("\nPlease enter number of blinks (0~255): ");
+
+        // 清空接收緩衝區
+        memset(rx_buffer, 0, sizeof(rx_buffer));
+
+        // 等待接收數據
+        XUartPs_Recv(&UartPs, rx_buffer, sizeof(rx_buffer) - 1);
+
+        // 將接收到的字節轉換為數字
+        blink_count = atoi((char*)rx_buffer);
+
+        xil_printf("Blink count: %d\n", blink_count);
+
+        // 輸入 LED 模式
+        xil_printf("Please enter LED display mode (0x00 ~ 0xFF): ");
+
+        // 清空接收緩衝區
+        memset(rx_buffer, 0, sizeof(rx_buffer));
+
+        // 等待接收數據
+        XUartPs_Recv(&UartPs, rx_buffer, sizeof(rx_buffer) - 1);
+
+        // 將接收到的字節轉換為十六進制數字
+        led_pattern = (u8)strtol((char*)rx_buffer, NULL, 16);
+
+        xil_printf("LED pattern: 0x%02X\n", led_pattern);
+
+        xil_printf("\nStarting blink %d times...\n", blink_count);
+
+        for (i = 0; i < blink_count; i++) {
+            XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, led_pattern);
+            usleep(500000);
+            XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0x00);
+            usleep(500000);
+        }
+
+        // 閃爍結束，恢復全亮
+        XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0xFF);
+        xil_printf("Blink completed, LED back to all ON (0xFF)\n");
+    }
+    return 0;
+}

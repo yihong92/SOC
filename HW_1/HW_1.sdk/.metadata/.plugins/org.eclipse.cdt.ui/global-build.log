@@ -1,0 +1,782 @@
+23:12:20 **** Build of project LED_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+make -C ps7_cortexa9_0/libsrc/gpio_v4_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_10/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_8/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/wdtps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/wdtps_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+make -C ps7_cortexa9_0/libsrc/gpio_v4_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling gpio"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_10/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_8/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling standalone"
+In file included from usleep.c:56:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xil_sleeptimer.c:51:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xtime_l.c:49:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from sleep.c:53:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/wdtps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/wdtps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling wdtps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+23:12:47 **** Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+../../LED_bsp/ps7_cortexa9_0/lib\libxil.a(xil-crt0.o): In function `_start':
+C:\soc\HW_1\HW_1.sdk\LED_bsp\ps7_cortexa9_0\libsrc\standalone_v6_8\src/xil-crt0.S:138: undefined reference to `main'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: LED.elf] Error 1
+23:12:54 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23324	   1168	  22600	  47092	   b7f4	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:13:25 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:15:13 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:35:9: warning: implicit declaration of function 'scanf' [-Wimplicit-function-declaration]
+         scanf("%s", input_buffer);
+         ^~~~~
+../src/main.c:35:9: warning: incompatible implicit declaration of built-in function 'scanf'
+../src/main.c:35:9: note: include '<stdio.h>' or provide a declaration of 'scanf'
+../src/main.c:38:9: warning: implicit declaration of function 'sscanf' [-Wimplicit-function-declaration]
+         sscanf(input_buffer, "%x", &led_value);
+         ^~~~~~
+../src/main.c:38:9: warning: incompatible implicit declaration of built-in function 'sscanf'
+../src/main.c:38:9: note: include '<stdio.h>' or provide a declaration of 'sscanf'
+../src/main.c:38:32: warning: format '%x' expects argument of type 'unsigned int *', but argument 3 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+         sscanf(input_buffer, "%x", &led_value);
+                               ~^   ~~~~~~~~~~
+                               %hhx
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 114124	   2600	  23360	 140084	  22334	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:15:29 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:17:18 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23324	   1168	  22600	  47092	   b7f4	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:17:28 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:24:32 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:35:9: warning: implicit declaration of function 'scanf' [-Wimplicit-function-declaration]
+         scanf("%s", input_buffer);
+         ^~~~~
+../src/main.c:35:9: warning: incompatible implicit declaration of built-in function 'scanf'
+../src/main.c:35:9: note: include '<stdio.h>' or provide a declaration of 'scanf'
+../src/main.c:38:9: warning: implicit declaration of function 'sscanf' [-Wimplicit-function-declaration]
+         sscanf(input_buffer, "%x", &led_value);
+         ^~~~~~
+../src/main.c:38:9: warning: incompatible implicit declaration of built-in function 'sscanf'
+../src/main.c:38:9: note: include '<stdio.h>' or provide a declaration of 'sscanf'
+../src/main.c:38:32: warning: format '%x' expects argument of type 'unsigned int *', but argument 3 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+         sscanf(input_buffer, "%x", &led_value);
+                               ~^   ~~~~~~~~~~
+                               %hhx
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 114124	   2600	  23360	 140084	  22334	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:24:37 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:31:24 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:32:23: warning: implicit declaration of function 'getchar'; did you mean 'memchr'? [-Wimplicit-function-declaration]
+         blink_count = getchar(); // Åª¨ú°{Ã{¦¸¼Æ (³æ¦r¤¸)
+                       ^~~~~~~
+                       memchr
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  31400	   2208	  22664	  56272	   dbd0	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:32:59 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23776	   1168	  22600	  47544	   b9b8	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:33:06 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:34:23 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:34:42 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:37:57 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/main.c: In function 'main':
+../../LED_bsp/ps7_cortexa9_0/include/xparameters.h:368:34: warning: passing argument 1 of 'XUartPs_Recv' makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_PS7_UART_1_BASEADDR 0xE0001000
+                                  ^
+../src/main.c:10:23: note: in expansion of macro 'XPAR_PS7_UART_1_BASEADDR'
+ #define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+                       ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/main.c:36:22: note: in expansion of macro 'UART_BASEADDR'
+         XUartPs_Recv(UART_BASEADDR, (u8 *)input_buffer, 100);  // ±µ¦¬¤@¦æ¿é¤J
+                      ^~~~~~~~~~~~~
+In file included from ../src/main.c:3:0:
+../../LED_bsp/ps7_cortexa9_0/include/xuartps.h:465:5: note: expected 'XUartPs * {aka struct <anonymous> *}' but argument is of type 'unsigned int'
+ u32 XUartPs_Recv(XUartPs *InstancePtr,u8 *BufferPtr,
+     ^~~~~~~~~~~~
+../src/main.c:37:9: warning: implicit declaration of function 'sscanf' [-Wimplicit-function-declaration]
+         sscanf(input_buffer, "%hhd %hhx", &blink_count, &led_pattern);  // ¸ÑªR¼Æ¾Ú
+         ^~~~~~
+../src/main.c:37:9: warning: incompatible implicit declaration of built-in function 'sscanf'
+../src/main.c:37:9: note: include '<stdio.h>' or provide a declaration of 'sscanf'
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 108068	   2600	  23360	 134028	  20b8c	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:38:02 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:38:13 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:39:10 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:42:50 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:44:27 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:45:14 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/main.c: In function 'main':
+../../LED_bsp/ps7_cortexa9_0/include/xparameters.h:368:34: warning: passing argument 1 of 'XUartPs_Recv' makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_PS7_UART_1_BASEADDR 0xE0001000
+                                  ^
+../src/main.c:10:23: note: in expansion of macro 'XPAR_PS7_UART_1_BASEADDR'
+ #define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+                       ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/main.c:38:43: note: in expansion of macro 'UART_BASEADDR'
+         int bytes_received = XUartPs_Recv(UART_BASEADDR, (u8 *)input_buffer, 100);
+                                           ^~~~~~~~~~~~~
+In file included from ../src/main.c:3:0:
+../../LED_bsp/ps7_cortexa9_0/include/xuartps.h:465:5: note: expected 'XUartPs * {aka struct <anonymous> *}' but argument is of type 'unsigned int'
+ u32 XUartPs_Recv(XUartPs *InstancePtr,u8 *BufferPtr,
+     ^~~~~~~~~~~~
+../src/main.c:48:27: warning: implicit declaration of function 'sscanf' [-Wimplicit-function-declaration]
+         int num_scanned = sscanf(input_buffer, "%hhd %hhx", &blink_count, &led_pattern);
+                           ^~~~~~
+../src/main.c:48:27: warning: incompatible implicit declaration of built-in function 'sscanf'
+../src/main.c:48:27: note: include '<stdio.h>' or provide a declaration of 'sscanf'
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 108212	   2600	  23360	 134172	  20c1c	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:46:27 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:48:26 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:51:18 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:52:21 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:54:00 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23776	   1168	  22600	  47544	   b9b8	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:54:08 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:55:53 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/main.c: In function 'main':
+../../LED_bsp/ps7_cortexa9_0/include/xparameters.h:368:34: warning: passing argument 1 of 'XUartPs_Recv' makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_PS7_UART_1_BASEADDR 0xE0001000
+                                  ^
+../src/main.c:10:23: note: in expansion of macro 'XPAR_PS7_UART_1_BASEADDR'
+ #define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+                       ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/main.c:38:43: note: in expansion of macro 'UART_BASEADDR'
+         int bytes_received = XUartPs_Recv(UART_BASEADDR, (u8 *)input_buffer, 100);
+                                           ^~~~~~~~~~~~~
+In file included from ../src/main.c:3:0:
+../../LED_bsp/ps7_cortexa9_0/include/xuartps.h:465:5: note: expected 'XUartPs * {aka struct <anonymous> *}' but argument is of type 'unsigned int'
+ u32 XUartPs_Recv(XUartPs *InstancePtr,u8 *BufferPtr,
+     ^~~~~~~~~~~~
+../src/main.c:48:27: warning: implicit declaration of function 'sscanf' [-Wimplicit-function-declaration]
+         int num_scanned = sscanf(input_buffer, "%hhd %hhx", &blink_count, &led_pattern);
+                           ^~~~~~
+../src/main.c:48:27: warning: incompatible implicit declaration of built-in function 'sscanf'
+../src/main.c:48:27: note: include '<stdio.h>' or provide a declaration of 'sscanf'
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 108212	   2600	  23360	 134172	  20c1c	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:55:59 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:57:53 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23804	   1168	  22600	  47572	   b9d4	LED.elf
+'Finished building: LED.elf.size'
+' '
+23:58:00 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+00:02:09 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23860	   1168	  22600	  47628	   ba0c	LED.elf
+'Finished building: LED.elf.size'
+' '
+00:02:15 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+00:04:24 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/main.c: In function 'main':
+../../LED_bsp/ps7_cortexa9_0/include/xparameters.h:368:34: warning: passing argument 1 of 'XUartPs_Recv' makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_PS7_UART_1_BASEADDR 0xE0001000
+                                  ^
+../src/main.c:10:23: note: in expansion of macro 'XPAR_PS7_UART_1_BASEADDR'
+ #define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+                       ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/main.c:40:34: note: in expansion of macro 'UART_BASEADDR'
+         num_bytes = XUartPs_Recv(UART_BASEADDR, uart_input, sizeof(uart_input) - 1);
+                                  ^~~~~~~~~~~~~
+In file included from ../src/main.c:3:0:
+../../LED_bsp/ps7_cortexa9_0/include/xuartps.h:465:5: note: expected 'XUartPs * {aka struct <anonymous> *}' but argument is of type 'unsigned int'
+ u32 XUartPs_Recv(XUartPs *InstancePtr,u8 *BufferPtr,
+     ^~~~~~~~~~~~
+../src/main.c:40:49: warning: pointer targets in passing argument 2 of 'XUartPs_Recv' differ in signedness [-Wpointer-sign]
+         num_bytes = XUartPs_Recv(UART_BASEADDR, uart_input, sizeof(uart_input) - 1);
+                                                 ^~~~~~~~~~
+In file included from ../src/main.c:3:0:
+../../LED_bsp/ps7_cortexa9_0/include/xuartps.h:465:5: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ u32 XUartPs_Recv(XUartPs *InstancePtr,u8 *BufferPtr,
+     ^~~~~~~~~~~~
+In file included from ../src/main.c:1:0:
+../../LED_bsp/ps7_cortexa9_0/include/xparameters.h:368:34: warning: passing argument 1 of 'XUartPs_Recv' makes pointer from integer without a cast [-Wint-conversion]
+ #define XPAR_PS7_UART_1_BASEADDR 0xE0001000
+                                  ^
+../src/main.c:10:23: note: in expansion of macro 'XPAR_PS7_UART_1_BASEADDR'
+ #define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+                       ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/main.c:50:34: note: in expansion of macro 'UART_BASEADDR'
+         num_bytes = XUartPs_Recv(UART_BASEADDR, uart_input, sizeof(uart_input) - 1);
+                                  ^~~~~~~~~~~~~
+In file included from ../src/main.c:3:0:
+../../LED_bsp/ps7_cortexa9_0/include/xuartps.h:465:5: note: expected 'XUartPs * {aka struct <anonymous> *}' but argument is of type 'unsigned int'
+ u32 XUartPs_Recv(XUartPs *InstancePtr,u8 *BufferPtr,
+     ^~~~~~~~~~~~
+../src/main.c:50:49: warning: pointer targets in passing argument 2 of 'XUartPs_Recv' differ in signedness [-Wpointer-sign]
+         num_bytes = XUartPs_Recv(UART_BASEADDR, uart_input, sizeof(uart_input) - 1);
+                                                 ^~~~~~~~~~
+In file included from ../src/main.c:3:0:
+../../LED_bsp/ps7_cortexa9_0/include/xuartps.h:465:5: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ u32 XUartPs_Recv(XUartPs *InstancePtr,u8 *BufferPtr,
+     ^~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26104	   1168	  22600	  49872	   c2d0	LED.elf
+'Finished building: LED.elf.size'
+' '
+00:04:32 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+00:07:37 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:36:9: warning: implicit declaration of function 'gets' [-Wimplicit-function-declaration]
+         gets(input_buffer);
+         ^~~~
+../src/main.c:37:23: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+         blink_count = atoi(input_buffer);  // å°‡å?—ä¸²è½‰æ?›ç‚º?•´?•¸
+                       ^~~~
+../src/main.c:44:27: warning: implicit declaration of function 'strtol'; did you mean 'strtok'? [-Wimplicit-function-declaration]
+         led_pattern = (u8)strtol(input_buffer, NULL, 16);  // 16 ?²åˆ¶è½‰æ??
+                           ^~~~~~
+                           strtok
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  31952	   2208	  22664	  56824	   ddf8	LED.elf
+'Finished building: LED.elf.size'
+' '
+00:07:50 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+00:08:45 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:36:9: warning: implicit declaration of function 'gets' [-Wimplicit-function-declaration]
+         gets(input_buffer);
+         ^~~~
+../src/main.c:37:23: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+         blink_count = atoi(input_buffer);  // Convert string to integer
+                       ^~~~
+../src/main.c:44:27: warning: implicit declaration of function 'strtol'; did you mean 'strtok'? [-Wimplicit-function-declaration]
+         led_pattern = (u8)strtol(input_buffer, NULL, 16);  // Convert from hex
+                           ^~~~~~
+                           strtok
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  31980	   2208	  22664	  56852	   de14	LED.elf
+'Finished building: LED.elf.size'
+' '
+00:08:49 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+00:09:15 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+00:10:36 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:52:23: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+         blink_count = atoi((char*)rx_buffer);
+                       ^~~~
+../src/main.c:66:27: warning: implicit declaration of function 'strtol'; did you mean 'strtok'? [-Wimplicit-function-declaration]
+         led_pattern = (u8)strtol((char*)rx_buffer, NULL, 16);
+                           ^~~~~~
+                           strtok
+../src/main.c:19:9: warning: variable 'rx_bytes' set but not used [-Wunused-but-set-variable]
+     u32 rx_bytes;
+         ^~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26384	   1184	  22664	  50232	   c438	LED.elf
+'Finished building: LED.elf.size'
+' '
+00:11:41 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26384	   1184	  22664	  50232	   c438	LED.elf
+'Finished building: LED.elf.size'
+' '
+00:11:46 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+00:14:28 **** Auto Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../LED_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: LED.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../LED_bsp/ps7_cortexa9_0/lib -o "LED.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: LED.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size LED.elf  |tee "LED.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26720	   1184	  22664	  50568	   c588	LED.elf
+'Finished building: LED.elf.size'
+' '
+00:14:37 **** Incremental Build of configuration Debug for project LED ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.

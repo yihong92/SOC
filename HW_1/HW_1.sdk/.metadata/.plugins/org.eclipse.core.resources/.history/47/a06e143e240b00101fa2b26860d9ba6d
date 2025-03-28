@@ -1,0 +1,72 @@
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xuartps.h"
+#include "xil_printf.h"
+#include "sleep.h"
+#include <stdlib.h>  // 用於 atoi 函數
+
+#define LED_DEVICE_ID  XPAR_AXI_GPIO_0_DEVICE_ID
+#define LED_CHANNEL 1
+#define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+
+XGpio Gpio;  // GPIO 物件
+
+int main() {
+    int status;
+    u8 blink_count;
+    u8 led_pattern;
+    char input_buffer[100];  // 用於儲存用戶輸入的緩衝區
+    int i;
+
+    // 初始化 GPIO
+    status = XGpio_Initialize(&Gpio, LED_DEVICE_ID);
+    if (status != XST_SUCCESS) {
+        xil_printf("GPIO 初始化失敗！\n");
+        return XST_FAILURE;
+    }
+
+    XGpio_SetDataDirection(&Gpio, LED_CHANNEL, 0x00); // 設定 LED 為輸出
+
+    // **初始 LED 全亮**
+    XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0xFF);
+    xil_printf("LED 初始狀態: 全亮 (0xFF)\n");
+
+    while (1) {
+        xil_printf("\n請輸入閃爍次數和 LED 顯示模式，格式：<閃爍次數> <顯示模式>\n");
+
+        // 等待用戶輸入，並讀取數據到緩衝區
+        int bytes_received = XUartPs_Recv(UART_BASEADDR, (u8 *)input_buffer, 100);
+
+        if (bytes_received == 0) {
+            xil_printf("沒有收到數據！\n");
+            continue;
+        } else {
+            xil_printf("接收到數據: %s\n", input_buffer);
+        }
+
+        // 解析輸入的數據
+        int num_scanned = sscanf(input_buffer, "%hhd %hhx", &blink_count, &led_pattern);
+
+        if (num_scanned != 2) {
+            xil_printf("數據格式錯誤，請確保格式是：<閃爍次數> <顯示模式>\n");
+            continue;
+        }
+
+        xil_printf("您輸入的閃爍次數: %d, LED 顯示模式: 0x%02X\n", blink_count, led_pattern);
+
+        xil_printf("\n開始閃爍 %d 次...\n", blink_count);
+
+        for (i = 0; i < blink_count; i++) {
+            XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, led_pattern);  // 顯示 LED 模式
+            usleep(500000);  // 暫停 500ms
+            XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0x00);  // 熄滅 LED
+            usleep(500000);  // 暫停 500ms
+        }
+
+        // **閃爍結束，恢復全亮**
+        XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0xFF);
+        xil_printf("閃爍結束，LED 恢復全亮 (0xFF)\n");
+    }
+
+    return 0;
+}

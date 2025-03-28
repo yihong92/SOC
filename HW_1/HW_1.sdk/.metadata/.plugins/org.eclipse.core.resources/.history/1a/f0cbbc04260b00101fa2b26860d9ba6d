@@ -1,0 +1,62 @@
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xuartps.h"
+#include "xil_printf.h"
+#include "sleep.h"
+#define LED_DEVICE_ID  XPAR_AXI_GPIO_0_DEVICE_ID
+#define LED_CHANNEL 1
+#define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+
+XGpio Gpio;  // GPIO object
+
+int main() {
+    int status;
+    u8 blink_count;
+    u8 led_pattern;
+    u8 i;
+    char input_buffer[4];  // Buffer to store input string
+
+    // Initialize GPIO
+    status = XGpio_Initialize(&Gpio, LED_DEVICE_ID);
+    if (status != XST_SUCCESS) {
+        xil_printf("GPIO initialization failed!\n");
+        return XST_FAILURE;
+    }
+    XGpio_SetDataDirection(&Gpio, LED_CHANNEL, 0x00); // Set LED as output
+
+    // Initial LED all on
+    XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0xFF);
+    xil_printf("LED initial state: All ON (0xFF)\n");
+
+    while (1) {
+        // Input blink count
+        xil_printf("\nPlease enter number of blinks (0~255): ");
+
+        // Read entire line input
+        gets(input_buffer);
+        blink_count = atoi(input_buffer);  // Convert string to integer
+
+        xil_printf("Blink count: %d\n", blink_count);
+
+        // Input LED pattern
+        xil_printf("Please enter LED display mode (0x00 ~ 0xFF): ");
+        gets(input_buffer);
+        led_pattern = (u8)strtol(input_buffer, NULL, 16);  // Convert from hex
+
+        xil_printf("LED pattern: 0x%02X\n", led_pattern);
+
+        xil_printf("\nStarting blink %d times...\n", blink_count);
+
+        for (i = 0; i < blink_count; i++) {
+            XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, led_pattern);
+            usleep(500000);
+            XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0x00);
+            usleep(500000);
+        }
+
+        // Blink end, resume all on
+        XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0xFF);
+        xil_printf("Blink completed, LED back to all ON (0xFF)\n");
+    }
+    return 0;
+}

@@ -1,0 +1,56 @@
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xuartps.h"
+#include "xil_printf.h"
+#include "sleep.h"
+
+#define LED_DEVICE_ID  XPAR_AXI_GPIO_0_DEVICE_ID
+#define LED_CHANNEL 1
+#define UART_BASEADDR XPAR_PS7_UART_1_BASEADDR  // UART 1
+
+XGpio Gpio;  // GPIO 物件
+
+int main() {
+    int status;
+    u8 blink_count;
+    u8 led_pattern;
+    u8 i;
+
+    // 初始化 GPIO
+    status = XGpio_Initialize(&Gpio, LED_DEVICE_ID);
+    if (status != XST_SUCCESS) {
+        xil_printf("GPIO 初始化失敗！\n");
+        return XST_FAILURE;
+    }
+
+    XGpio_SetDataDirection(&Gpio, LED_CHANNEL, 0x00); // 設定 LED 為輸出
+
+    // **初始 LED 全亮**
+    XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0xFF);
+    xil_printf("LED 初始狀態: 全亮 (0xFF)\n");
+
+    while (1) {
+        xil_printf("\n請輸入閃爍次數 (0~255): ");
+        blink_count = XUartPs_RecvByte(UART_BASEADDR); // 讀取 UART 數據
+        xil_printf("閃爍次數: %d\n", blink_count);
+
+        xil_printf("請輸入 LED 顯示模式 (0x00 ~ 0xFF): ");
+        led_pattern = XUartPs_RecvByte(UART_BASEADDR);
+        xil_printf("LED 顯示模式: 0x%02X\n", led_pattern);
+
+        xil_printf("\n開始閃爍 %d 次...\n", blink_count);
+
+        for (i = 0; i < blink_count; i++) {
+            XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, led_pattern);
+            usleep(500000);
+            XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0x00);
+            usleep(500000);
+        }
+
+        // **閃爍結束，恢復全亮**
+        XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, 0xFF);
+        xil_printf("閃爍結束，LED 恢復全亮 (0xFF)\n");
+    }
+
+    return 0;
+}

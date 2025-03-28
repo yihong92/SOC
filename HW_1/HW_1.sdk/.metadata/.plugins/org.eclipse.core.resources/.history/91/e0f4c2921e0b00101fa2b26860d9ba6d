@@ -1,0 +1,47 @@
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xil_printf.h"
+
+// 定義 GPIO 物件
+XGpio Gpio;
+
+// AXI GPIO 設備 ID
+#define GPIO_DEVICE_ID  XPAR_AXI_GPIO_0_DEVICE_ID
+#define LED_CHANNEL 1  // 假設 GPIO Channel 1 控制 LED_input
+
+int main()
+{
+    int Status;
+    u8 led_value = 0x00;  // 初始 LED_input 為 0
+    char input_buffer[10];  // 存放鍵盤輸入的字串
+
+    // 初始化 GPIO
+    Status = XGpio_Initialize(&Gpio, GPIO_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("GPIO 初始化失敗！\n");
+        return XST_FAILURE;
+    }
+
+    // 設定 GPIO 為輸出模式 (0x00 = 輸出)
+    XGpio_SetDataDirection(&Gpio, LED_CHANNEL, 0x00);
+
+    xil_printf("請輸入 LED 數值 (0x00 - 0xFF)，按 Enter 送出。\n");
+
+    while (1)
+    {
+        xil_printf("LED_input = 0x");
+
+        // 讀取鍵盤輸入 (格式: 16 進位)
+        scanf("%s", input_buffer);
+
+        // 解析輸入的 16 進制數字
+        sscanf(input_buffer, "%x", &led_value);
+
+        // 寫入 GPIO
+        XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, led_value);
+
+        xil_printf("%X\n", led_value);  // 顯示當前 LED 狀態
+    }
+
+    return 0;
+}

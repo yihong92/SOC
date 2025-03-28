@@ -1,0 +1,44 @@
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xil_printf.h"
+
+// 定義 GPIO 物件
+XGpio Gpio;
+
+// AXI GPIO 設備 ID (請確認 `xparameters.h` 內的名稱)
+#define GPIO_DEVICE_ID  XPAR_AXI_GPIO_0_DEVICE_ID
+#define LED_CHANNEL 1  // 假設 GPIO Channel 1 控制 LED_input (8-bit)
+
+int main()
+{
+    int Status;
+    u8 led_value = 0x01;  // 初始 LED_input 設為 0x01 (8-bit)
+
+    // 初始化 GPIO
+    Status = XGpio_Initialize(&Gpio, GPIO_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("GPIO 初始化失敗！\n");
+        return XST_FAILURE;
+    }
+
+    // 設定 GPIO 為輸出模式 (0x00 = 輸出)
+    XGpio_SetDataDirection(&Gpio, LED_CHANNEL, 0x00);
+
+    while (1)
+    {
+        // 寫入 LED_input，影響 LED_output
+        XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, led_value);
+
+        // 讓 LED_input 變化 (讓 LED 燈逐個閃爍)
+        led_value = (led_value << 1);
+        if (led_value == 0x00) {
+            led_value = 0x01;  // 循環回到 0x01
+        }
+
+        xil_printf("LED_input 設定為: 0x%X\n", led_value);
+
+        for (volatile int i = 0; i < 10000000; i++);  // 簡單延遲
+    }
+
+    return 0;
+}
