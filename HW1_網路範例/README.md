@@ -18,7 +18,7 @@
 ---
 
 ##  C 程式碼  
-🔗 [main.c](https://github.com/yihong92/SOC/blob/main/HW_1/HW_1.sdk/LED/src/main.c)  
+🔗 [main.c](https://github.com/yihong92/SOC/blob/main/HW1_%E7%B6%B2%E8%B7%AF%E7%AF%84%E4%BE%8B/HW_1.sdk/LED/src/main.c)  
 **說明：**  
 - 控制 LED 閃爍次數與顯示模式（0x00 ~ 0xFF）  
 - 初始狀態為全亮，閃爍完成後亦回復為全亮
