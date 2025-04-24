@@ -9,9 +9,9 @@
 
 ---
 
-##  VHDL 檔案  
+##  VHDL 程式碼  
 🔗 [counter.vhd](https://github.com/yihong92/SOC/blob/main/HW1/ip_repo/myip_1.0/hdl/counter.vhd)  
-🔗 [myip_v1_0_S00_AXI.vhd](https://github.com/yihong92/SOC/blob/main/HW1/ip_repo/myip_1.0/hdl/myip_v1_0_S00_AXI.vhd) 
+🔗 [myip_v1_0_S00_AXI.vhd](https://github.com/yihong92/SOC/blob/main/HW1/ip_repo/myip_1.0/hdl/myip_v1_0_S00_AXI.vhd)  
 🔗 [myip_v1_0.vhd](https://github.com/yihong92/SOC/blob/main/HW1/ip_repo/myip_1.0/hdl/myip_v1_0.vhd) 
 **說明：**  
 - counter 模組 : count_max 用來接收 s_reg0 的資料，收到資料 conting = 1 開始計數 
