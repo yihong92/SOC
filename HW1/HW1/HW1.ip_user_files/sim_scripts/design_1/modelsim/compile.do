@@ -67,9 +67,9 @@ vcom -work proc_sys_reset_v5_0_13 -64 -93 \
 
 vcom -work xil_defaultlib -64 -93 \
 "../../../bd/design_1/ip/design_1_proc_sys_reset_0_0/sim/design_1_proc_sys_reset_0_0.vhd" \
-"../../../bd/design_1/ipshared/fbd0/hdl/counter.vhd" \
-"../../../bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd" \
-"../../../bd/design_1/ipshared/fbd0/hdl/myip_v1_0.vhd" \
+"../../../bd/design_1/ipshared/795b/hdl/counter.vhd" \
+"../../../bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/795b/hdl/myip_v1_0.vhd" \
 "../../../bd/design_1/ip/design_1_myip_0_0/sim/design_1_myip_0_0.vhd" \
 "../../../bd/design_1/sim/design_1.vhd" \
 

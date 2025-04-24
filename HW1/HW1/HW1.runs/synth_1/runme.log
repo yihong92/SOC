@@ -19,41 +19,41 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11216 
+INFO: Helper process launched with PID 22772 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 408.645 ; gain = 107.320
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 407.574 ; gain = 107.141
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-1565] actual for formal port reset is neither a static name nor a globally static expression [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:412]
-INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:41]
-INFO: [Synth 8-3491] module 'design_1' declared at 'C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:591' bound to instance 'design_1_i' of component 'design_1' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:69]
-INFO: [Synth 8-638] synthesizing module 'design_1' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:622]
-INFO: [Synth 8-3491] module 'design_1_myip_0_0' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/synth/design_1_myip_0_0.vhd:56' bound to instance 'myip_0' of component 'design_1_myip_0_0' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:850]
-INFO: [Synth 8-638] synthesizing module 'design_1_myip_0_0' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/synth/design_1_myip_0_0.vhd:83]
+WARNING: [Synth 8-1565] actual for formal port reset is neither a static name nor a globally static expression [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:414]
+INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:42]
+INFO: [Synth 8-3491] module 'design_1' declared at 'C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:591' bound to instance 'design_1_i' of component 'design_1' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:71]
+INFO: [Synth 8-638] synthesizing module 'design_1' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:623]
+INFO: [Synth 8-3491] module 'design_1_myip_0_0' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/synth/design_1_myip_0_0.vhd:56' bound to instance 'myip_0' of component 'design_1_myip_0_0' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:854]
+INFO: [Synth 8-638] synthesizing module 'design_1_myip_0_0' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/synth/design_1_myip_0_0.vhd:84]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'myip_v1_0' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0.vhd:5' bound to instance 'U0' of component 'myip_v1_0' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/synth/design_1_myip_0_0.vhd:150]
-INFO: [Synth 8-638] synthesizing module 'myip_v1_0' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0.vhd:47]
+INFO: [Synth 8-3491] module 'myip_v1_0' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0.vhd:5' bound to instance 'U0' of component 'myip_v1_0' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/synth/design_1_myip_0_0.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'myip_v1_0' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0.vhd:48]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'myip_v1_0_S00_AXI' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:5' bound to instance 'myip_v1_0_S00_AXI_inst' of component 'myip_v1_0_S00_AXI' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0.vhd:84]
-INFO: [Synth 8-638] synthesizing module 'myip_v1_0_S00_AXI' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:86]
+INFO: [Synth 8-3491] module 'myip_v1_0_S00_AXI' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:5' bound to instance 'myip_v1_0_S00_AXI_inst' of component 'myip_v1_0_S00_AXI' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'myip_v1_0_S00_AXI' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:87]
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-226] default block is never used [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:241]
-INFO: [Synth 8-226] default block is never used [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:375]
-INFO: [Synth 8-3491] module 'counter' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/counter.vhd:5' bound to instance 'counter_inst' of component 'counter' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:409]
-INFO: [Synth 8-638] synthesizing module 'counter' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/counter.vhd:16]
-WARNING: [Synth 8-614] signal 'reset' is read in the process but is not in the sensitivity list [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/counter.vhd:36]
-INFO: [Synth 8-256] done synthesizing module 'counter' (1#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/counter.vhd:16]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg1_reg was removed.  [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:235]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:236]
-WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:239]
-INFO: [Synth 8-256] done synthesizing module 'myip_v1_0_S00_AXI' (2#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0_S00_AXI.vhd:86]
-INFO: [Synth 8-256] done synthesizing module 'myip_v1_0' (3#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/fbd0/hdl/myip_v1_0.vhd:47]
-INFO: [Synth 8-256] done synthesizing module 'design_1_myip_0_0' (4#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/synth/design_1_myip_0_0.vhd:83]
-INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/synth/design_1_proc_sys_reset_0_0.vhd:59' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:875]
+INFO: [Synth 8-226] default block is never used [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:243]
+INFO: [Synth 8-226] default block is never used [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:377]
+INFO: [Synth 8-3491] module 'counter' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/counter.vhd:5' bound to instance 'counter_inst' of component 'counter' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:411]
+INFO: [Synth 8-638] synthesizing module 'counter' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/counter.vhd:17]
+WARNING: [Synth 8-614] signal 'reset' is read in the process but is not in the sensitivity list [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/counter.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'counter' (1#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/counter.vhd:17]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg1_reg was removed.  [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:237]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:238]
+WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:241]
+INFO: [Synth 8-256] done synthesizing module 'myip_v1_0_S00_AXI' (2#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0_S00_AXI.vhd:87]
+INFO: [Synth 8-256] done synthesizing module 'myip_v1_0' (3#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/795b/hdl/myip_v1_0.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'design_1_myip_0_0' (4#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/synth/design_1_myip_0_0.vhd:84]
+INFO: [Synth 8-3491] module 'design_1_proc_sys_reset_0_0' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/synth/design_1_proc_sys_reset_0_0.vhd:59' bound to instance 'proc_sys_reset_0' of component 'design_1_proc_sys_reset_0_0' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:880]
 INFO: [Synth 8-638] synthesizing module 'design_1_proc_sys_reset_0_0' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/synth/design_1_proc_sys_reset_0_0.vhd:74]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_EXT_RST_WIDTH bound to: 4 - type: integer 
@@ -137,7 +137,7 @@ INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (8#1) [c:/soc/HW1/HW1.src
 INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (9#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
 INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (10#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
 INFO: [Synth 8-256] done synthesizing module 'design_1_proc_sys_reset_0_0' (11#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/synth/design_1_proc_sys_reset_0_0.vhd:74]
-INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:60' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:888]
+INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:60' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:893]
 INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:60]
 INFO: [Synth 8-6157] synthesizing module 'processing_system7_v5_5_processing_system7' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:161]
 	Parameter C_USE_DEFAULT_ACP_USER_VAL bound to: 0 - type: integer 
@@ -984,8 +984,8 @@ INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_18_ax
 INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (33#1) [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/synth/design_1_auto_pc_0.v:58]
 INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_UYSKKA' (34#1) [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:80]
 INFO: [Synth 8-256] done synthesizing module 'design_1_ps7_0_axi_periph_0' (35#1) [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:398]
-INFO: [Synth 8-256] done synthesizing module 'design_1' (36#1) [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:622]
-INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (37#1) [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'design_1' (36#1) [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/synth/design_1.vhd:623]
+INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (37#1) [C:/soc/HW1/HW1.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:42]
 WARNING: [Synth 8-3331] design axi_infrastructure_v1_1_0_vector2axi__parameterized0 has unconnected port m_axi_bid[0]
 WARNING: [Synth 8-3331] design axi_infrastructure_v1_1_0_vector2axi__parameterized0 has unconnected port m_axi_buser[0]
 WARNING: [Synth 8-3331] design axi_infrastructure_v1_1_0_vector2axi__parameterized0 has unconnected port m_axi_rid[0]
@@ -1088,7 +1088,7 @@ WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_18_b2s_wrap_cmd has u
 WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_18_b2s_wrap_cmd has unconnected port axlen[5]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:27 . Memory (MB): peak = 571.715 ; gain = 270.391
+Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 571.594 ; gain = 271.160
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1101,10 +1101,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:27 . Memory (MB): peak = 571.715 ; gain = 270.391
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 571.594 ; gain = 271.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:27 . Memory (MB): peak = 571.715 ; gain = 270.391
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 571.594 ; gain = 271.160
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1121,7 +1121,7 @@ Parsing XDC File [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_proc_sys
 Finished Parsing XDC File [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_board.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
 Parsing XDC File [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
 Finished Parsing XDC File [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0.xdc] for cell 'design_1_i/proc_sys_reset_0/U0'
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 838.176 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 843.797 ; gain = 0.000
 Parsing XDC File [C:/soc/HW1/HW1.srcs/constrs_1/new/led.xdc]
 Finished Parsing XDC File [C:/soc/HW1/HW1.srcs/constrs_1/new/led.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/soc/HW1/HW1.srcs/constrs_1/new/led.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
@@ -1130,26 +1130,26 @@ Parsing XDC File [C:/soc/HW1/HW1.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/soc/HW1/HW1.runs/synth_1/dont_touch.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/soc/HW1/HW1.runs/synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 838.176 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 843.797 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 838.176 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 843.797 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 13 instances were transformed.
   FDR => FDRE: 12 instances
   SRL16 => SRL16E: 1 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 838.176 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 838.176 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 843.797 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 843.797 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:28 ; elapsed = 00:00:36 . Memory (MB): peak = 838.176 ; gain = 536.852
+Finished Constraint Validation : Time (s): cpu = 00:00:31 ; elapsed = 00:00:44 . Memory (MB): peak = 843.797 ; gain = 543.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:28 ; elapsed = 00:00:36 . Memory (MB): peak = 838.176 ; gain = 536.852
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:31 ; elapsed = 00:00:44 . Memory (MB): peak = 843.797 ; gain = 543.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1163,7 +1163,7 @@ Applied set_property DONT_TOUCH = true for design_1_i/myip_0. (constraint file  
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:36 . Memory (MB): peak = 838.176 ; gain = 536.852
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:44 . Memory (MB): peak = 843.797 ; gain = 543.363
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4471] merging register 'seq_cnt_en_reg' into 'from_sys_reg' [c:/soc/HW1/HW1.srcs/sources_1/bd/design_1/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:377]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axi_protocol_converter_v2_1_18_b2s_rd_cmd_fsm'
@@ -1181,7 +1181,7 @@ INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To p
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'axi_protocol_converter_v2_1_18_b2s_rd_cmd_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 838.176 ; gain = 536.852
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:45 . Memory (MB): peak = 843.797 ; gain = 543.363
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1204,7 +1204,7 @@ Detailed RTL Component Info :
 +---Registers : 
 	               66 Bit    Registers := 4     
 	               47 Bit    Registers := 2     
-	               32 Bit    Registers := 4     
+	               32 Bit    Registers := 3     
 	               14 Bit    Registers := 2     
 	               12 Bit    Registers := 9     
 	                9 Bit    Registers := 2     
@@ -1214,7 +1214,7 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 8     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 10    
-	                1 Bit    Registers := 45    
+	                1 Bit    Registers := 44    
 +---Muxes : 
 	   2 Input     66 Bit        Muxes := 4     
 	   2 Input     47 Bit        Muxes := 2     
@@ -1228,7 +1228,7 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 18    
 	   2 Input      2 Bit        Muxes := 14    
 	   4 Input      2 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 37    
+	   2 Input      1 Bit        Muxes := 38    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -1239,10 +1239,9 @@ Hierarchical RTL Component report
 Module counter 
 Detailed RTL Component Info : 
 +---Registers : 
-	               32 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 4     
 Module myip_v1_0_S00_AXI 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -1444,7 +1443,7 @@ INFO: [Synth 8-3886] merging instance 'design_1_i/ps7_0_axi_periph/s00_couplers/
 INFO: [Synth 8-3886] merging instance 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar.ar_pipe/aresetn_d_reg[0]' (FDR) to 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw.aw_pipe/aresetn_d_reg[0]'
 INFO: [Synth 8-3886] merging instance 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/b.b_pipe/aresetn_d_reg[1]' (FDR) to 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar.ar_pipe/aresetn_d_reg[1]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:40 . Memory (MB): peak = 838.176 ; gain = 536.852
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:47 . Memory (MB): peak = 843.797 ; gain = 543.363
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1456,13 +1455,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:48 . Memory (MB): peak = 974.871 ; gain = 673.547
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:54 . Memory (MB): peak = 978.516 ; gain = 678.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:49 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:55 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1474,7 +1473,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:51 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:56 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1499,7 +1498,7 @@ INFO: [Synth 8-5365] Flop inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar.ar
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:57 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1512,7 +1511,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:57 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1524,25 +1523,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:57 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:57 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:58 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:58 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1579,34 +1578,35 @@ Report Cell Usage:
 +------+--------+------+
 |1     |BIBUF   |   130|
 |2     |BUFG    |     2|
-|3     |CARRY4  |    40|
+|3     |CARRY4  |    37|
 |4     |LUT1    |   126|
 |5     |LUT2    |    63|
 |6     |LUT3    |   242|
-|7     |LUT4    |    99|
-|8     |LUT5    |    86|
-|9     |LUT6    |   143|
+|7     |LUT4    |    98|
+|8     |LUT5    |    84|
+|9     |LUT6    |   136|
 |10    |PS7     |     1|
 |11    |SRL16   |     1|
 |12    |SRL16E  |    18|
 |13    |SRLC32E |    47|
-|14    |FDCE    |    92|
+|14    |FDCE    |    59|
 |15    |FDR     |     8|
 |16    |FDRE    |   680|
 |17    |FDSE    |    22|
-|18    |OBUF    |     8|
+|18    |IBUF    |     1|
+|19    |OBUF    |     8|
 +------+--------+------+
 
 Report Instance Areas: 
 +------+---------------------------------------------------+---------------------------------------------------------------+------+
 |      |Instance                                           |Module                                                         |Cells |
 +------+---------------------------------------------------+---------------------------------------------------------------+------+
-|1     |top                                                |                                                               |  1808|
-|2     |  design_1_i                                       |design_1                                                       |  1800|
-|3     |    myip_0                                         |design_1_myip_0_0                                              |   361|
-|4     |      U0                                           |myip_v1_0                                                      |   360|
-|5     |        myip_v1_0_S00_AXI_inst                     |myip_v1_0_S00_AXI                                              |   360|
-|6     |          counter_inst                             |counter                                                        |   234|
+|1     |top                                                |                                                               |  1763|
+|2     |  design_1_i                                       |design_1                                                       |  1754|
+|3     |    myip_0                                         |design_1_myip_0_0                                              |   315|
+|4     |      U0                                           |myip_v1_0                                                      |   314|
+|5     |        myip_v1_0_S00_AXI_inst                     |myip_v1_0_S00_AXI                                              |   314|
+|6     |          counter_inst                             |counter                                                        |   188|
 |7     |    proc_sys_reset_0                               |design_1_proc_sys_reset_0_0                                    |    66|
 |8     |      U0                                           |proc_sys_reset                                                 |    66|
 |9     |        EXT_LPF                                    |lpf                                                            |    23|
@@ -1644,17 +1644,17 @@ Report Instance Areas:
 |41    |                bresp_fifo_0                       |axi_protocol_converter_v2_1_18_b2s_simple_fifo__parameterized0 |    10|
 +------+---------------------------------------------------+---------------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:58 . Memory (MB): peak = 1064.074 ; gain = 763.641
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 126 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:45 . Memory (MB): peak = 1059.117 ; gain = 491.332
-Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1059.117 ; gain = 757.793
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:52 . Memory (MB): peak = 1064.074 ; gain = 491.438
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:58 . Memory (MB): peak = 1064.074 ; gain = 763.641
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 49 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 46 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1059.117 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1064.074 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 9 instances were transformed.
   FDR => FDRE: 8 instances
@@ -1663,10 +1663,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 170 Infos, 115 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:55 . Memory (MB): peak = 1059.117 ; gain = 765.016
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1059.117 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:01:01 . Memory (MB): peak = 1064.074 ; gain = 770.863
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1064.074 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/soc/HW1/HW1.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 24 01:10:53 2025...
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 24 20:26:26 2025...

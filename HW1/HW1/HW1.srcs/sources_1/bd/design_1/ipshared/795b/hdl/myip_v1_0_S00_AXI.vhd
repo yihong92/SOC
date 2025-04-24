@@ -17,6 +17,7 @@ entity myip_v1_0_S00_AXI is
 	port (
 		-- Users to add ports here
 		LED_value : out std_logic_vector(7 downto 0);
+		btn       : in  std_logic;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -131,7 +132,8 @@ architecture arch_imp of myip_v1_0_S00_AXI is
 			count_max : in  std_logic_vector(31 downto 0);
 			count     : out std_logic_vector(31 downto 0);
 			led       : out std_logic_vector(7 downto 0);
-			done      : out std_logic
+			done      : out std_logic;
+			btn       : in  std_logic
 		);
 	end component;
 
@@ -413,7 +415,8 @@ begin
 			count_max => slv_reg0,
 			count     => count_value,
 			led       => LED_value,
-			done      => done
+			done      => done,
+			btn       => btn
 		);
 	-- User logic ends
 

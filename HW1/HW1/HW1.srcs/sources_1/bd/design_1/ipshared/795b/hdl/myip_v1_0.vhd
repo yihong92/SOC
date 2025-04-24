@@ -16,6 +16,7 @@ entity myip_v1_0 is
 	port (
 		-- Users to add ports here
 		led : out std_logic_vector(7 downto 0); -- [MODIFIED] Added LED output port
+		btn : in  std_logic;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -54,6 +55,7 @@ architecture arch_imp of myip_v1_0 is
 		);
 		port (
 			LED_value : out std_logic_vector(7 downto 0); -- [MODIFIED] Added LED_value port
+			btn       : in std_logic;
 			S_AXI_ACLK	: in std_logic;
 			S_AXI_ARESETN	: in std_logic;
 			S_AXI_AWADDR	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
@@ -88,6 +90,7 @@ begin
 		)
 		port map (
 			LED_value => led, -- [MODIFIED] Map LED_value to top-level led port
+			btn       => btn,
 			S_AXI_ACLK	=> s00_axi_aclk,
 			S_AXI_ARESETN	=> s00_axi_aresetn,
 			S_AXI_AWADDR	=> s00_axi_awaddr,
