@@ -10,7 +10,7 @@
 ---
 
 ##  VHDL 檔案  
-🔗 [LED.vhd](https://github.com/yihong92/SOC/blob/main/HW_1/HW_1.srcs/sources_1/new/LED.vhd)  
+🔗 [LED.vhd](https://github.com/yihong92/SOC/blob/main/HW1_%E7%B6%B2%E8%B7%AF%E7%AF%84%E4%BE%8B/HW_1.srcs/sources_1/new/LED.vhd)  
 **說明：**  
 - 使用 `sw` 控制是否接收 GPIO 的輸出  
 - GPIO 輸出的 LED 訊號傳送至 `LED_input`，再從 `LED_input` 傳至 `LED_output`
