@@ -3,3 +3,5 @@
 ---
 ## 🔗[HW1](https://github.com/yihong92/SOC/blob/main/HW1/README.md)
 ---
+## 🔗[HW2.1](https://github.com/yihong92/SOC/blob/main/HW2/HW2.1/README.md)
+---
