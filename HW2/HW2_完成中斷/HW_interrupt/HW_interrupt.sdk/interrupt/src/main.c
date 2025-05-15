@@ -1,0 +1,103 @@
+#include "xparameters.h"
+#include "xil_io.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include <stdio.h>
+#include <unistd.h>
+
+#define IP_BASE_ADDR XPAR_INTERRUPT_0_S00_AXI_BASEADDR
+#define INTR_BASE_ADDR 0x43C10000 // Placeholder: Replace with actual S_AXI_INTR base address
+#define INTR_ID XPAR_FABRIC_INTERRUPT_0_IRQ_INTR
+
+// GIC instance
+static XScuGic Intc;
+
+// Interrupt handler
+void InterruptHandler(void *data) {
+    printf("[Interrupt] Stop button pressed!\n");
+
+    // Read interrupt status
+    unsigned int intr_sts = Xil_In32(INTR_BASE_ADDR + 0x08); // reg_intr_sts
+    printf("[Interrupt Status] reg_intr_sts[0]: %u\n", intr_sts & 0x1);
+
+    // Read counter status
+    unsigned int count_value = Xil_In32(IP_BASE_ADDR + 0x04); // slv_reg1
+    unsigned int done = Xil_In32(IP_BASE_ADDR + 0x08);       // slv_reg2
+    printf("[Counter Status] count_value: %u, done: %u\n", count_value, done);
+
+    // Clear interrupt
+    Xil_Out32(INTR_BASE_ADDR + 0x0C, 0x1); // Write 1 to reg_intr_ack[0]
+    printf("Interrupt cleared.\n");
+
+    // Check if counting is complete
+    if (done == 1) {
+        printf("Counting completed!\n");
+        printf("Final count_value (should be 0): %u\n", count_value);
+        printf("Done flag (should be 1): %u\n", done);
+        printf("=== Test Finished ===\n");
+    } else {
+        printf("Counting paused. Press start button to resume.\n");
+    }
+}
+
+// Initialize interrupt controller
+int SetupInterruptSystem(XScuGic *IntcInstancePtr) {
+    XScuGic_Config *IntcConfig;
+
+    // Initialize GIC
+    IntcConfig = XScuGic_LookupConfig(XPAR_PS7_SCUGIC_0_DEVICE_ID);
+    if (IntcConfig == NULL) {
+        printf("GIC LookupConfig failed!\n");
+        return XST_FAILURE;
+    }
+
+    int Status = XScuGic_CfgInitialize(IntcInstancePtr, IntcConfig, IntcConfig->CpuBaseAddress);
+    if (Status != XST_SUCCESS) {
+        printf("GIC CfgInitialize failed!\n");
+        return XST_FAILURE;
+    }
+
+    // Connect interrupt handler
+    XScuGic_Connect(IntcInstancePtr, INTR_ID, (Xil_InterruptHandler)InterruptHandler, NULL);
+
+    // Enable interrupt
+    XScuGic_Enable(IntcInstancePtr, INTR_ID);
+
+    // Enable interrupts in processor
+    Xil_ExceptionInit();
+    Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XScuGic_InterruptHandler, IntcInstancePtr);
+    Xil_ExceptionEnable();
+
+    return XST_SUCCESS;
+}
+
+int main() {
+    printf("=== Starting AXI IP Counter Test with Interrupt ===\n");
+
+    // Initialize interrupt system
+    if (SetupInterruptSystem(&Intc) != XST_SUCCESS) {
+        printf("Interrupt system setup failed!\n");
+        return 1;
+    }
+
+    // Enable interrupts in IP
+    printf("Enabling interrupts in IP...\n");
+    Xil_Out32(INTR_BASE_ADDR + 0x00, 0x1); // Enable global interrupt (reg_global_intr_en)
+    Xil_Out32(INTR_BASE_ADDR + 0x04, 0x1); // Enable interrupt 0 (reg_intr_en[0])
+    printf("Interrupts enabled.\n");
+
+    // Write count_max to slv_reg0
+    unsigned int count_max = 20;
+    printf("Writing count_max: %u to slv_reg0 (offset 0x00)\n", count_max);
+    Xil_Out32(IP_BASE_ADDR, count_max);
+    printf("Please press the start button to begin counting...\n");
+
+    // Wait for interrupts
+    printf("Waiting for stop button interrupt or counting completion...\n");
+    while (1) {
+        // Keep program running to handle interrupts
+        usleep(1000000); // 1s delay to reduce CPU usage
+    }
+
+    return 0;
+}
