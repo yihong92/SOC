@@ -1,6 +1,6 @@
 # HW2_中斷
 
-利用軟體設定計數值寫入 s_reg0，RTL 收到計數值後開始計數且顯示在輸出的 led，計數完畢回傳 done 信號給 s_reg2 回傳給軟體，至於 s_reg1 用來輪詢當前計數值。
+利用按鈕事件決定是否中斷，當按鈕按下時會輸出 irq 信號至 Zynq PS，通過中斷控制器傳送 irq 到 GIC
 
 ---
 
@@ -15,10 +15,10 @@
 🔗 [interrupt_v1_0.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/interrupt_1.0/hdl/interrupt_v1_0.vhd) 
 🔗 [interrupt_v1_0_S_AXI_INTR.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/interrupt_1.0/hdl/interrupt_v1_0_S_AXI_INTR.vhd)
 **說明：**  
-- counter_interrupt 模組 : count_max 接收 s_reg0 的資料，收到資料且按下 btn 後 conting = 1 開始計數(cnt = cnt + 1)，計數完 cnt 歸零，counting = 0(暫停計數)、done_int = 1(計數結束) 
-- 底層 vhd               : 實例化 coounter 模組，s_reg0 用來接收計數值，s_reg1 回傳 RTL 當前計數值，s_reg2 回傳計數完畢，輸出 LED_value 給頂層用於顯示實體 led 
-- 頂層 vhd               : 輸出實體 led 接腳，輸入 btn 接腳
-- 中斷 vhd               :
+- counter_interrupt 模組 : 根據 HW1 的 counter 模組新增了停止按鈕與輸出中斷的訊號，當 stop_btn 按下去，輸出 irq 訊號 
+- 底層 vhd               : 沿用 HW1 暫存器的功能，新增了 slv_reg3 ，用來讀取 irq_int 
+- 頂層 vhd               : 輸出實體 led 接腳與 irq 訊號，輸入 btn、stop_btn 接腳
+- 中斷 vhd               : 處理 interrupt_v1_0_S00_AXI.vhd 的中斷信號（intr_in)，通過 irq 將中斷傳遞到 Zynq PS
 
 ---
 
