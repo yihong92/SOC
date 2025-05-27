@@ -12,8 +12,8 @@
 ##  VHDL 程式碼  
 🔗 [counter_interrupt.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/counter_interrupt.vhd)  
 🔗 [HW2_interrupt_v1_0_S00_AXI.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/HW2_interrupt_v1_0_S00_AXI.vhd)  
-🔗 [HW2_interrupt_v1_0.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/HW2_interrupt_v1_0.vhd) 
-🔗 [HW2_interrupt_v1_0_S_AXI_INTR.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/HW2_interrupt_v1_0_S_AXI_INTR.vhd) 
+🔗 [HW2_interrupt_v1_0.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/HW2_interrupt_v1_0.vhd)  
+🔗 [HW2_interrupt_v1_0_S_AXI_INTR.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/HW2_interrupt_v1_0_S_AXI_INTR.vhd)  
 **說明：**  
 - counter_interrupt 模組 : 根據 HW1 的 counter 模組新增了接收中斷的訊號，當收到 stop 訊號就中斷計數  
 - 底層 vhd               : 沿用 HW1 暫存器的功能，新增了 slv_reg3 ，用來讀取軟體端的中斷訊號 ，還有 intr 輸出訊號用來連接外部中斷器 
