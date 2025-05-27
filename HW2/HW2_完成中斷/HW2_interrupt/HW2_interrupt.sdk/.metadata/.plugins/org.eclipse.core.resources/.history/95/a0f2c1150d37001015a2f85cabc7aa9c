@@ -1,0 +1,111 @@
+#include "xparameters.h"
+#include "xuartps.h"
+#include "xil_io.h"
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR // IP 基地址
+#define INTR_BASE_ADDR 0x43C10000 // 中斷控制器基地址
+#define UART_DEVICE_ID XPAR_XUARTPS_0_DEVICE_ID // UART 設備 ID
+
+// 中斷控制器暫存器偏移
+#define GIER 0x00  // 全局中斷啟用暫存器
+#define IER  0x04  // 中斷啟用暫存器
+#define ISR  0x08  // 中斷狀態暫存器
+#define IAR  0x0C  // 中斷確認暫存器
+#define IPR  0x10  // 中斷掛起暫存器
+
+int main() {
+    printf("=== Starting AXI IP Counter Test with Interrupt ===\n");
+
+    // 初始化 UART
+    XUartPs uart;
+    XUartPs_Config *config = XUartPs_LookupConfig(UART_DEVICE_ID);
+    XUartPs_CfgInitialize(&uart, config, config->BaseAddress);
+
+    // 初始化中斷控制器
+    printf("配置中斷控制器...\n");
+    Xil_Out32(INTR_BASE_ADDR + GIER, 0x1); // 啟用全局中斷
+    Xil_Out32(INTR_BASE_ADDR + IER, 0x1);  // 啟用中斷 0
+    Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);  // 清除任何掛起的中斷
+
+    unsigned int count_max = 20;
+    int interrupted = 0;
+    int counting_done = 0;
+
+    while (1) {
+        if (!interrupted && !counting_done) {
+            // 寫入 count_max
+            printf("寫入 count_max: %u 到 slv_reg0 (偏移 0x00)\n", count_max);
+            Xil_Out32(IP_BASE_ADDR, count_max);
+            Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0); // 清除 stop
+            printf("寫入完成。請按按鍵開始計數...\n");
+
+            // 輪詢計數器狀態
+            unsigned int count_value = 0;
+            unsigned int done = 0;
+            unsigned int intr_status = 0;
+            printf("開始輪詢計數器狀態...\n");
+
+            while (!interrupted && !counting_done) {
+                count_value = Xil_In32(IP_BASE_ADDR + 0x04); // 讀取 slv_reg1
+                done = Xil_In32(IP_BASE_ADDR + 0x08);        // 讀取 slv_reg2
+                intr_status = Xil_In32(INTR_BASE_ADDR + ISR); // 讀取中斷狀態
+
+                printf("[狀態] count_value: %u, done: %u, intr_status: %u\n", count_value, done, intr_status);
+
+                // 檢查 UART 輸入
+                if (XUartPs_IsReceiveData(config->BaseAddress)) {
+                    char ch = XUartPs_RecvByte(config->BaseAddress);
+                    printf("收到 UART 輸入 (%c)，觸發停止計數\n", ch);
+                    Xil_Out32(IP_BASE_ADDR + 0x0C, 0x1); // 設置 slv_reg3 觸發中斷
+                }
+
+                // 檢查中斷
+                if (intr_status & 0x1) {
+                    printf("偵測到中斷！確認中斷...\n");
+                    Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // 確認中斷
+                    interrupted = 1;
+                }
+
+                // 檢查計數完成
+                if (done) {
+                    counting_done = 1;
+                    printf("計數完成！最終 count_value: %u\n", count_value);
+                }
+
+                usleep(500000); // 500ms 延遲
+            }
+        }
+
+        // 中斷或計數完成後等待重啟
+        if (interrupted || counting_done) {
+            printf("%s。輸入 're' 重啟...\n", interrupted ? "計數已中斷" : "計數已完成");
+            static char input_buf[4] = {0};
+            static int input_idx = 0;
+
+            if (XUartPs_IsReceiveData(config->BaseAddress)) {
+                char ch = XUartPs_RecvByte(config->BaseAddress);
+                if (ch == '\r' || ch == '\n') {
+                    input_buf[input_idx] = '\0';
+                    if (strcmp(input_buf, "re") == 0) {
+                        printf("重新開始計數...\n");
+                        interrupted = 0;
+                        counting_done = 0;
+                        input_idx = 0;
+                        Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // 清除中斷
+                    } else {
+                        input_idx = 0; // 重置緩衝區
+                    }
+                } else if (input_idx < 3) {
+                    input_buf[input_idx++] = ch;
+                }
+            }
+        }
+
+        usleep(500000); // 500ms 檢查 UART
+    }
+
+    return 0;
+}

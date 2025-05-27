@@ -13,7 +13,7 @@ entity counter is
         btn       : in  std_logic; -- 開始按鈕
         stop_btn  : in  std_logic; -- 中斷按鈕
         irq       : out std_logic; -- 中斷輸出
-        irq_ack   : in  std_logic  -- 中斷確認輸入
+        irq_ack   : in  std_logic  -- 中斷確認輸入，用來清除內部中斷訊號
     );
 end counter;
 
@@ -23,9 +23,9 @@ architecture Behavioral of counter is
     signal fc : std_logic := '0';
     signal done_int : std_logic := '0';
     signal counting : std_logic := '0';
-    signal btn_prev : std_logic := '0'; -- Previous state of start button
-    signal stop_btn_prev : std_logic := '0'; -- Previous state of stop button
-    signal irq_int : std_logic := '0'; -- Internal interrupt signal
+    signal btn_prev : std_logic := '0'; -- 開始按鈕的前一狀態
+    signal stop_btn_prev : std_logic := '0'; -- 停止按鈕的前一狀態
+    signal irq_int : std_logic := '0'; -- 內部中斷訊號
 
 begin
     -- Clock divider
@@ -62,6 +62,7 @@ begin
             if stop_btn = '1' and stop_btn_prev = '0' then
                 irq_int <= '1'; -- Trigger interrupt
                 counting <= '0'; -- Pause counting
+				done_int <= '0';
             end if;
 
             -- Clear interrupt on acknowledge

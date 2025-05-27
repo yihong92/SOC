@@ -1,0 +1,91 @@
+#include "xparameters.h"
+#include "xuartps.h"
+#include "xil_io.h"
+#include <stdio.h>
+#include <sleep.h>
+#include <string.h>
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR
+#define INTR_BASE_ADDR 0x43C10000
+
+#define GIER 0x00
+#define IER  0x04
+#define ISR  0x08
+#define IAR  0x0C
+#define IPR  0x10
+
+#define UART_DEVICE_ID XPAR_XUARTPS_0_DEVICE_ID
+
+int main() {
+    printf("=== AXI IP Counter Test (Wait for 're' to Restart) ===\n");
+
+    // 初始化中斷寄存器
+    Xil_Out32(INTR_BASE_ADDR + GIER, 0x1); // Global interrupt enable
+    Xil_Out32(INTR_BASE_ADDR + IER, 0x1);  // Enable interrupt
+    Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);  // Clear interrupt status
+
+    // 初始化 UART
+    XUartPs uart;
+    XUartPs_Config *config = XUartPs_LookupConfig(UART_DEVICE_ID);
+    XUartPs_CfgInitialize(&uart, config, config->BaseAddress);
+
+    while (1) {
+        // 重設
+        Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0); // Clear stop
+        Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // 清 ISR
+
+        unsigned int count_max = 15;
+        Xil_Out32(IP_BASE_ADDR, count_max); // slv_reg0
+        printf("\n設定最大計數值 count_max = %u，請按下按鈕開始...\n", count_max);
+
+        unsigned int count_value = 0;
+        unsigned int done = 0;
+        unsigned int intr_status = 0;
+        int interrupt_printed = 0;
+        int finished_printed = 0;
+
+        while (1) {
+            count_value = Xil_In32(IP_BASE_ADDR + 0x04); // slv_reg1
+            done = Xil_In32(IP_BASE_ADDR + 0x08);         // slv_reg2
+            intr_status = Xil_In32(INTR_BASE_ADDR + ISR);
+
+            // 印中斷一次
+            if (intr_status && !interrupt_printed) {
+                printf("中斷發生！\n");
+                interrupt_printed = 1;
+                Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // 清中斷
+            }
+
+            // 計數完成印一次
+            if (done && !finished_printed) {
+                printf("✅ 計數完成！最終計數值 = %u\n", count_value);
+                finished_printed = 1;
+            }
+
+            // 接收 UART 輸入
+            if (XUartPs_IsReceiveData(config->BaseAddress)) {
+                char ch = XUartPs_RecvByte(config->BaseAddress);
+                static char cmd[4] = {0};
+                static int idx = 0;
+
+                // 儲存輸入字元
+                if (ch == '\r' || ch == '\n') {
+                    cmd[idx] = '\0';
+                    if (strcmp(cmd, "re") == 0) {
+                        printf("收到 're' 指令，準備重啟...\n");
+                        break;
+                    } else {
+                        printf("未知指令：%s（輸入 re 可重啟）\n", cmd);
+                    }
+                    idx = 0;
+                } else if (idx < 3) {
+                    cmd[idx++] = ch;
+                }
+            }
+
+            usleep(500000); // 0.5s
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,91 @@
+#include "xparameters.h"
+#include "xuartps.h"
+#include "xil_io.h"
+#include <stdio.h>
+#include <sleep.h>
+#include <string.h>
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR
+#define INTR_BASE_ADDR 0x43C10000
+
+#define GIER 0x00
+#define IER  0x04
+#define ISR  0x08
+#define IAR  0x0C
+#define IPR  0x10
+
+#define UART_DEVICE_ID XPAR_XUARTPS_0_DEVICE_ID
+
+int main() {
+    printf("=== AXI IP Counter Test (Wait for 're' to Restart) ===\n");
+
+    // 初始化中斷控制
+    Xil_Out32(INTR_BASE_ADDR + GIER, 0x1); // 啟用全域中斷
+    Xil_Out32(INTR_BASE_ADDR + IER, 0x1);  // 啟用來源中斷
+    Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);  // 清除中斷狀態
+
+    // 初始化 UART
+    XUartPs uart;
+    XUartPs_Config *config = XUartPs_LookupConfig(UART_DEVICE_ID);
+    XUartPs_CfgInitialize(&uart, config, config->BaseAddress);
+
+    while (1) {
+        // 清除停止訊號並重設中斷
+        Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0); // Clear stop
+        Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // Clear ISR
+
+        unsigned int count_max = 15;
+        Xil_Out32(IP_BASE_ADDR, count_max); // 設定最大計數值至 slv_reg0
+        printf("\nNew count_max = %u set. Press physical button to start.\n", count_max);
+
+        unsigned int count_value = 0;
+        unsigned int done = 0;
+        unsigned int intr_status = 0;
+        int interrupt_printed = 0;
+        int finished_printed = 0;
+
+        while (1) {
+            // 讀取目前計數值、完成訊號及中斷狀態
+            count_value = Xil_In32(IP_BASE_ADDR + 0x04); // slv_reg1
+            done = Xil_In32(IP_BASE_ADDR + 0x08);         // slv_reg2
+            intr_status = Xil_In32(INTR_BASE_ADDR + ISR);
+
+            // 若中斷觸發，僅印一次
+            if (intr_status && !interrupt_printed) {
+                printf("Interrupt triggered!\n");
+                interrupt_printed = 1;
+                Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // 清除中斷
+            }
+
+            // 若計數完成，僅印一次
+            if (done && !finished_printed) {
+                printf("Counting complete! Final count value = %u\n", count_value);
+                finished_printed = 1;
+            }
+
+            // 等待 UART 輸入是否為 "re"
+            if (XUartPs_IsReceiveData(config->BaseAddress)) {
+                char ch = XUartPs_RecvByte(config->BaseAddress);
+                static char cmd[4] = {0};
+                static int idx = 0;
+
+                if (ch == '\r' || ch == '\n') {
+                    cmd[idx] = '\0';
+                    if (strcmp(cmd, "re") == 0) {
+                        printf("Received 're'. Restarting...\n");
+                        break;
+                    } else {
+                        printf("Unknown input: %s. Type 're' to restart.\n", cmd);
+                    }
+                    idx = 0;
+                } else if (idx < 3) {
+                    cmd[idx++] = ch;
+                }
+            }
+
+            usleep(500000); // 等待 0.5 秒
+        }
+    }
+
+    return 0;
+}

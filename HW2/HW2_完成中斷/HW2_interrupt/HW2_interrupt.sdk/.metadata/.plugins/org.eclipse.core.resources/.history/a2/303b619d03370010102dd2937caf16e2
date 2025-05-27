@@ -1,0 +1,78 @@
+#include "xparameters.h"
+#include "xuartps.h"
+#include "xil_io.h"
+#include <stdio.h>
+#include <sleep.h>
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR
+#define INTR_BASE_ADDR 0x43C10000
+
+#define GIER 0x00
+#define IER  0x04
+#define ISR  0x08
+#define IAR  0x0C
+#define IPR  0x10
+
+#define UART_DEVICE_ID XPAR_XUARTPS_0_DEVICE_ID
+
+int main() {
+    printf("=== AXI IP Counter Test (UART Triggered Interrupt) ===\n");
+
+    Xil_Out32(INTR_BASE_ADDR + GIER, 0x1);
+    Xil_Out32(INTR_BASE_ADDR + IER, 0x1);
+    Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);
+
+    XUartPs uart;
+    XUartPs_Config *config = XUartPs_LookupConfig(UART_DEVICE_ID);
+    XUartPs_CfgInitialize(&uart, config, config->BaseAddress);
+
+    while (1) {
+        printf("\n=== New Counting Cycle ===\n");
+        Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0); // Clear stop
+        unsigned int count_max = 15;
+        Xil_Out32(IP_BASE_ADDR, count_max);
+        printf("count_max: %u written to slv_reg0\n", count_max);
+        printf("Press button to start, UART input to pause...\n");
+
+        unsigned int count_value = 0;
+        unsigned int done = 0;
+        unsigned int intr_status = 0;
+        int stopped = 0;
+
+        while (done == 0) {
+            count_value = Xil_In32(IP_BASE_ADDR + 0x04);
+            done = Xil_In32(IP_BASE_ADDR + 0x08);
+            intr_status = Xil_In32(INTR_BASE_ADDR + ISR);
+
+            printf("[Polling] count_value: %u, done: %u, intr_status: %u\n", count_value, done, intr_status);
+
+            if (XUartPs_IsReceiveData(config->BaseAddress)) {
+                char ch = XUartPs_RecvByte(config->BaseAddress);
+                printf("UART input (%c)! Pausing count...\n", ch);
+                Xil_Out32(IP_BASE_ADDR + 0x0C, 0x1);
+            }
+
+            if (intr_status & 0x1) {
+                printf("Interrupt detected! Acknowledging...\n");
+                Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);
+                Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0);
+                stopped = 1;
+            }
+
+            if (stopped && count_value > 0 && !done) {
+                printf("Button pressed, resuming count...\n");
+                stopped = 0;
+            }
+
+            usleep(500000);
+        }
+
+        count_value = Xil_In32(IP_BASE_ADDR + 0x04);
+        printf("Cycle completed. Final count_value: %u\n", count_value);
+        Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);
+        printf("Restarting in 1s...\n");
+        sleep(1);
+    }
+
+    return 0;
+}

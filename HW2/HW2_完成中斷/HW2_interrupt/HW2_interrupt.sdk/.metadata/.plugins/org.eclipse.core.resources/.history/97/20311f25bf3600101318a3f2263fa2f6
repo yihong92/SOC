@@ -1,0 +1,75 @@
+#include "xparameters.h"
+#include "xil_io.h"
+#include <stdio.h>
+#include <unistd.h>
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR
+#define INTR_BASE_ADDR 0x43C10000
+
+// Interrupt controller register offsets
+#define GIER 0x00  // Global Interrupt Enable Register
+#define IER  0x04  // Interrupt Enable Register
+#define ISR  0x08  // Interrupt Status Register
+#define IAR  0x0C  // Interrupt Acknowledge Register
+#define IPR  0x10  // Interrupt Pending Register
+
+int main() {
+    printf("=== Starting AXI IP Counter Test with Interrupt ===\n");
+
+    // Step 1: Configure interrupt controller once
+    printf("Configuring interrupt controller...\n");
+    Xil_Out32(INTR_BASE_ADDR + GIER, 0x1); // Enable global interrupt
+    Xil_Out32(INTR_BASE_ADDR + IER, 0x1);  // Enable interrupt 0
+    Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);  // Clear any pending interrupts
+
+    while (1) {
+        printf("\n=== New Counting Cycle ===\n");
+
+        // 讓使用者輸入最大計數值
+        unsigned int count_max;
+        printf("Enter count_max value: ");
+        scanf("%u", &count_max);
+
+        Xil_Out32(IP_BASE_ADDR, count_max);
+        printf("count_max: %u written to slv_reg0\n", count_max);
+        printf("Waiting for terminal trigger...\n");
+
+        // 等待使用者輸入觸發中斷
+        unsigned int trigger;
+        printf("Enter '1' to trigger interrupt manually: ");
+        scanf("%u", &trigger);
+
+        if (trigger == 1) {
+            Xil_Out32(IP_BASE_ADDR + 0x0C, 0x1); // slv_reg3: 手動送出 interrupt 觸發條件
+            printf("Manual trigger sent via slv_reg3\n");
+        }
+
+        // 等待中斷發生
+        unsigned int done = 0;
+        while (!done) {
+            unsigned int intr_status = Xil_In32(INTR_BASE_ADDR + ISR);
+            if (intr_status & 0x1) {
+                printf("Interrupt detected! Acknowledging...\n");
+                Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // Acknowledge interrupt
+                Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0);  // Clear slv_reg3
+                done = 1;
+            }
+
+            usleep(200000); // 稍微等待
+        }
+
+        printf("Cycle done. Restarting...\n");
+        sleep(1);
+    }
+
+        // Step 4: Verify and reset
+        count_value = Xil_In32(IP_BASE_ADDR + 0x04);
+        printf("Cycle completed. Final count_value: %u\n", count_value);
+        Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // Clear any pending interrupts
+        printf("Restarting...\n");
+
+        sleep(1); // brief pause before restarting
+    }
+
+    return 0;
+}

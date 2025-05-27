@@ -1,0 +1,72 @@
+#include "xparameters.h"
+#include "xuartps.h"
+#include "xil_io.h"
+#include <stdio.h>
+#include <sleep.h>
+#include <string.h>
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR
+#define UART_DEVICE_ID XPAR_XUARTPS_0_DEVICE_ID
+
+int main() {
+    printf("=== AXI IP Counter Test (Button Starts, UART Stops) ===\n");
+
+    XUartPs uart;
+    XUartPs_Config *config = XUartPs_LookupConfig(UART_DEVICE_ID);
+    XUartPs_CfgInitialize(&uart, config, config->BaseAddress);
+
+    unsigned int count_max = 30;
+    Xil_Out32(IP_BASE_ADDR + 0x00, count_max); // slv_reg0 = count_max
+    Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0);       // slv_reg3 = stop = 0
+
+    printf("Waiting for button press to start counting...\n");
+
+    int counting_done = 0;
+    int stop_sent = 0;
+
+    while (1) {
+        unsigned int count_val = Xil_In32(IP_BASE_ADDR + 0x04); // slv_reg1
+        unsigned int done      = Xil_In32(IP_BASE_ADDR + 0x08); // slv_reg2
+
+        printf("[Polling] count = %u, done = %u\n", count_val, done);
+
+        // 如果尚未發送 stop，並且 UART 有收到輸入，就送出停止訊號
+        if (!stop_sent && XUartPs_IsReceiveData(config->BaseAddress)) {
+            char ch = XUartPs_RecvByte(config->BaseAddress);
+            printf("UART input received (%c), sending stop to IP...\n", ch);
+            Xil_Out32(IP_BASE_ADDR + 0x0C, 0x1); // slv_reg3 = stop = 1
+            stop_sent = 1;
+        }
+
+        // 當 IP done，顯示一次完成訊息
+        if (done && !counting_done) {
+            printf("Counting Done. Final Count = %u\n", count_val);
+            counting_done = 1;
+        }
+
+        // 若已經完成，等待使用者輸入 `re` 重新開始
+        if (counting_done && XUartPs_IsReceiveData(config->BaseAddress)) {
+            char ch = XUartPs_RecvByte(config->BaseAddress);
+            static char input_buf[4] = {0};
+            static int input_idx = 0;
+
+            if (ch == '\r' || ch == '\n') {
+                input_buf[input_idx] = '\0';
+                if (strcmp(input_buf, "re") == 0) {
+                    printf("Restarting count...\n");
+                    Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0); // clear stop
+                    Xil_Out32(IP_BASE_ADDR + 0x00, count_max); // reset count_max
+                    counting_done = 0;
+                    stop_sent = 0;
+                }
+                input_idx = 0; // reset buffer
+            } else if (input_idx < 3) {
+                input_buf[input_idx++] = ch;
+            }
+        }
+
+        usleep(500000); // polling every 0.5s
+    }
+
+    return 0;
+}

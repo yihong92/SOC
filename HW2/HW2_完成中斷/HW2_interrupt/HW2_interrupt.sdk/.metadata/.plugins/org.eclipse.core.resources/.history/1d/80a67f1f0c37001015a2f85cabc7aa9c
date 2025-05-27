@@ -1,0 +1,80 @@
+#include "xparameters.h"
+#include "xuartps.h"
+#include "xil_io.h"
+#include <stdio.h>
+#include <sleep.h>
+#include <string.h>
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR // IP 基地址
+#define UART_DEVICE_ID XPAR_XUARTPS_0_DEVICE_ID // UART 設備 ID
+
+int main() {
+    printf("=== AXI IP Counter Test (Button Starts, UART Stops) ===\n"); // 印出程式啟動訊息
+
+    // 初始化 UART
+    XUartPs uart;
+    XUartPs_Config *config = XUartPs_LookupConfig(UART_DEVICE_ID); // 查找 UART 配置
+    XUartPs_CfgInitialize(&uart, config, config->BaseAddress); // 初始化 UART
+
+    // 初始化計數器參數
+    unsigned int count_max = 30; // 最大計數值
+    Xil_Out32(IP_BASE_ADDR + 0x00, count_max); // 寫入 slv_reg0 (count_max)
+    Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0);       // 清除 slv_reg3 (stop = 0)
+
+    printf("Waiting for button press to start counting...\n"); // 提示等待按鍵啟動計數
+
+    int counting_done = 0; // 計數完成標誌
+    int stop_sent = 0;     // 停止信號發送標誌
+
+    while (1) {
+        // 僅在計數進行中輪詢
+        if (!counting_done && !stop_sent) {
+            unsigned int count_val = Xil_In32(IP_BASE_ADDR + 0x04); // 讀取 slv_reg1 (當前計數值)
+            unsigned int done = Xil_In32(IP_BASE_ADDR + 0x08);      // 讀取 slv_reg2 (完成信號)
+
+            printf("[Polling] count = %u, done = %u\n", count_val, done); // 印出輪詢狀態
+
+            // 檢查 UART 輸入，若未發送 stop 則觸發
+            if (!stop_sent && XUartPs_IsReceiveData(config->BaseAddress)) {
+                char ch = XUartPs_RecvByte(config->BaseAddress); // 讀取 UART 字元
+                printf("UART input received (%c), sending stop to IP...\n", ch); // 提示收到 UART 輸入
+                Xil_Out32(IP_BASE_ADDR + 0x0C, 0x1); // 設置 slv_reg3 (stop = 1)
+                stop_sent = 1; // 標記已發送停止信號
+                printf("Counting paused. Type 're' to restart...\n"); // 提示計數暫停
+            }
+
+            // 檢查計數完成
+            if (done) {
+                printf("Counting Done. Final Count = %u\n", count_val); // 提示計數完成
+                counting_done = 1; // 設置完成標誌
+                printf("Counting completed. Type 're' to restart...\n"); // 提示等待重啟
+            }
+        }
+
+        // 檢查 UART 輸入以重啟計數
+        if ((counting_done || stop_sent) && XUartPs_IsReceiveData(config->BaseAddress)) {
+            char ch = XUartPs_RecvByte(config->BaseAddress); // 讀取 UART 字元
+            static char input_buf[4] = {0}; // 儲存輸入緩衝區
+            static int input_idx = 0; // 緩衝區索引
+
+            if (ch == '\r' || ch == '\n') { // 檢測回車或換行
+                input_buf[input_idx] = '\0'; // 結束字串
+                if (strcmp(input_buf, "re") == 0) { // 檢查是否為 "re"
+                    printf("Restarting count...\n"); // 提示重啟計數
+                    Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0); // 清除 slv_reg3 (stop)
+                    Xil_Out32(IP_BASE_ADDR + 0x00, count_max); // 重設 count_max
+                    counting_done = 0; // 重置完成標誌
+                    stop_sent = 0; // 重置停止標誌
+                    printf("Waiting for button press to start counting...\n"); // 提示等待按鍵
+                }
+                input_idx = 0; // 重置緩衝區索引
+            } else if (input_idx < 3) {
+                input_buf[input_idx++] = ch; // 儲存輸入字元
+            }
+        }
+
+        usleep(500000); // 每 0.5 秒檢查一次
+    }
+
+    return 0;
+}

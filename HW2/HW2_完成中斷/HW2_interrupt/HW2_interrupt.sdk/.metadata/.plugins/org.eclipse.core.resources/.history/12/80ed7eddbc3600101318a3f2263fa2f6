@@ -1,0 +1,86 @@
+#include "xparameters.h"
+#include "xil_io.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/select.h>
+#include <termios.h>
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR
+#define INTR_BASE_ADDR 0x43C10000
+
+#define GIER 0x00
+#define IER  0x04
+#define ISR  0x08
+#define IAR  0x0C
+#define IPR  0x10
+
+void set_terminal_nonblocking(int enable) {
+    static struct termios oldt, newt;
+    if (enable) {
+        tcgetattr(STDIN_FILENO, &oldt);
+        newt = oldt;
+        newt.c_lflag &= ~(ICANON | ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+        fcntl(STDIN_FILENO, F_SETFL, O_NONBLOCK);
+    } else {
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+        fcntl(STDIN_FILENO, F_SETFL, 0);
+    }
+}
+
+int main() {
+    printf("=== AXI IP Counter Test (Terminal Interrupt Trigger) ===\n");
+
+    Xil_Out32(INTR_BASE_ADDR + GIER, 0x1);
+    Xil_Out32(INTR_BASE_ADDR + IER, 0x1);
+    Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);
+
+    set_terminal_nonblocking(1);  // 啟用非阻塞輸入
+
+    while (1) {
+        printf("\n=== New Counting Cycle ===\n");
+        unsigned int count_max = 15;
+        Xil_Out32(IP_BASE_ADDR, count_max);
+        printf("count_max: %u written to slv_reg0\n", count_max);
+        printf("Waiting for interrupt... (press Enter to interrupt)\n");
+
+        unsigned int count_value = 0;
+        unsigned int done = 0;
+        unsigned int intr_status = 0;
+
+        while (done == 0) {
+            count_value = Xil_In32(IP_BASE_ADDR + 0x04); // slv_reg1
+            done        = Xil_In32(IP_BASE_ADDR + 0x08); // slv_reg2
+            intr_status = Xil_In32(INTR_BASE_ADDR + ISR);
+
+            printf("[Polling] count_value: %u, done: %u, intr_status: %u\n", count_value, done, intr_status);
+
+            // Check for user input to stop
+            char ch;
+            if (read(STDIN_FILENO, &ch, 1) > 0) {
+                printf("User interrupt input detected! Stopping...\n");
+                Xil_Out32(IP_BASE_ADDR + 0x0C, 0x1); // slv_reg3 = stop
+            }
+
+            if (intr_status & 0x1) {
+                printf("Interrupt detected! Acknowledging...\n");
+                Xil_Out32(INTR_BASE_ADDR + IAR, 0x1); // Acknowledge interrupt
+                Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0);  // Clear stop bit
+                done = 1;
+            }
+
+            usleep(500000);
+        }
+
+        count_value = Xil_In32(IP_BASE_ADDR + 0x04);
+        printf("Cycle completed. Final count_value: %u\n", count_value);
+        Xil_Out32(INTR_BASE_ADDR + IAR, 0x1);
+
+        printf("Restarting in 1s...\n");
+        sleep(1);
+    }
+
+    set_terminal_nonblocking(0); // 還原終端狀態
+    return 0;
+}

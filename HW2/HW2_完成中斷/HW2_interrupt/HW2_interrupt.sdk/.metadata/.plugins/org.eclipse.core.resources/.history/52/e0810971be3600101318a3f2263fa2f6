@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include "xparameters.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "xil_io.h"
+#include "xuartps.h"
+#include "sleep.h"
+
+#define IP_BASE_ADDR XPAR_HW2_INTERRUPT_0_S00_AXI_BASEADDR
+#define GIC_DEVICE_ID XPAR_PS7_SCUGIC_0_DEVICE_ID
+#define IRQ_NUM XPAR_FABRIC_HW2_INTERRUPT_0_IRQ_INTR
+
+XScuGic Intc;
+XUartPs UartPs;
+volatile int StopFlag = 0; // Flag to pause counting
+
+// ISR for hardware interrupt
+void HW2_ISR(void *CallbackRef) {
+    printf("[ISR] Hardware interrupt triggered! count_value: %u\n", Xil_In32(IP_BASE_ADDR + 0x04));
+    Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0); // Clear slv_reg3 (stop)
+    StopFlag = 1; // Pause counting
+    XScuGic_Disable(&Intc, IRQ_NUM); // Disable interrupt temporarily
+}
+
+// Initialize interrupt controller
+int SetupInterruptSystem() {
+    XScuGic_Config *IntcConfig = XScuGic_LookupConfig(GIC_DEVICE_ID);
+    if (!IntcConfig) return XST_FAILURE;
+
+    if (XScuGic_CfgInitialize(&Intc, IntcConfig, IntcConfig->CpuBaseAddress) != XST_SUCCESS)
+        return XST_FAILURE;
+
+    XScuGic_SetPriorityTriggerType(&Intc, IRQ_NUM, 0xA0, 0x3); // Rising edge
+    if (XScuGic_Connect(&Intc, IRQ_NUM, (Xil_InterruptHandler)HW2_ISR, NULL) != XST_SUCCESS)
+        return XST_FAILURE;
+
+    XScuGic_Enable(&Intc, IRQ_NUM);
+    Xil_ExceptionInit();
+    Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XScuGic_InterruptHandler, &Intc);
+    Xil_ExceptionEnable();
+    return XST_SUCCESS;
+}
+
+// Initialize UART
+int SetupUart() {
+    XUartPs_Config *Config = XUartPs_LookupConfig(XPAR_XUARTPS_0_DEVICE_ID);
+    if (!Config) return XST_FAILURE;
+
+    if (XUartPs_CfgInitialize(&UartPs, Config, Config->BaseAddress) != XST_SUCCESS)
+        return XST_FAILURE;
+
+    XUartPs_SetOperMode(&UartPs, XUARTPS_OPER_MODE_NORMAL);
+    return XST_SUCCESS;
+}
+
+// Check UART input for software interrupt
+int CheckUartInput() {
+    u8 buffer[1];
+    if (XUartPs_Recv(&UartPs, buffer, 1)) {
+        if (buffer[0] == 'r') {
+            printf("[UART] Input 'r' received, restarting count\n");
+            return 1;
+        }
+        printf("[UART] Input '%c' ignored\n", buffer[0]);
+    }
+    return 0;
+}
+
+int main() {
+    printf("=== Starting AXI IP Counter Test with Interrupt ===\n");
+
+    // Initialize interrupt system
+    if (SetupInterruptSystem() != XST_SUCCESS) {
+        printf("Interrupt system setup failed\n");
+        return XST_FAILURE;
+    }
+    printf("Interrupt system initialized\n");
+
+    // Initialize UART
+    if (SetupUart() != XST_SUCCESS) {
+        printf("UART setup failed\n");
+        return XST_FAILURE;
+    }
+    printf("UART initialized\n");
+
+    while (1) {
+        if (!StopFlag) {
+            printf("=== New Counting Cycle ===\n");
+            Xil_Out32(IP_BASE_ADDR + 0x0C, 0x0); // Clear stop
+            Xil_Out32(IP_BASE_ADDR, 15); // Write count_max
+            printf("count_max: 15 written to slv_reg0\n");
+            printf("Waiting for interrupt... (press button to trigger)\n");
+
+            unsigned int done = 0;
+            while (done == 0 && !StopFlag) {
+                unsigned int count_value = Xil_In32(IP_BASE_ADDR + 0x04);
+                done = Xil_In32(IP_BASE_ADDR + 0x08);
+                printf("[Polling] count_value: %u, done: %u\n", count_value, done);
+
+                if (count_value >= 5 && done == 0) {
+                    printf("Triggering stop at count_value: %u\n", count_value);
+                    Xil_Out32(IP_BASE_ADDR + 0x0C, 0x1); // Set stop
+                }
+                if (CheckUartInput()) {
+                    Xil_Out32(IP_BASE_ADDR + 0x0C, 0x1); // Software interrupt
+                    StopFlag = 1;
+                }
+                usleep(500000);
+            }
+        } else {
+            printf("Counting stopped. Press button or type 'r' to restart\n");
+            XScuGic_Enable(&Intc, IRQ_NUM); // Re-enable interrupt
+            while (StopFlag) {
+                if (Xil_In32(IP_BASE_ADDR + 0x08)) { // Check done (button pressed)
+                    printf("[Button] Button pressed, restarting\n");
+                    StopFlag = 0;
+                }
+                if (CheckUartInput()) StopFlag = 0;
+                usleep(100000);
+            }
+        }
+    }
+    return 0;
+}

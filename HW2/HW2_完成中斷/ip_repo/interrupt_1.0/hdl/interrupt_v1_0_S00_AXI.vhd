@@ -126,6 +126,8 @@ architecture arch_imp of interrupt_v1_0_S00_AXI is
 	signal count_value : std_logic_vector(31 downto 0);
 	signal done : std_logic;
 	signal irq_int : std_logic; -- Internal signal for irq
+	-- Signals for irq_ack generation
+	signal irq_ack_internal : std_logic := '0';
 
 	-- Component declaration for counter
 	component counter is
@@ -411,6 +413,21 @@ begin
 	    end if;
 	  end if;
 	end process;
+	-- Generate irq_ack when writing to slv_reg3
+	process (S_AXI_ACLK)
+	begin
+		if rising_edge(S_AXI_ACLK) then
+			if S_AXI_ARESETN = '0' then
+				irq_ack_internal <= '0';
+			else
+				if slv_reg_wren = '1' and axi_awaddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB) = "11" and S_AXI_WDATA(0) = '1' then
+					irq_ack_internal <= '1';
+				else
+					irq_ack_internal <= '0';
+				end if;
+			end if;
+		end if;
+	end process;
 
 	-- Add user logic here
 	-- Instantiate counter
@@ -425,7 +442,7 @@ begin
 			btn       => btn,
 			stop_btn  => stop_btn,
 			irq       => irq_int,
-			irq_ack   => irq_ack
+			irq_ack   => irq_ack_internal
 		);
 	-- User logic ends
 
