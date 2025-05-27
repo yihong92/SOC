@@ -10,10 +10,10 @@
 ---
 
 ##  VHDL 程式碼  
-🔗 [counter_interrupt.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/interrupt_1.0/hdl/counter_interrupt.vhd)  
-🔗 [interrupt_v1_0_S00_AXI.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/interrupt_1.0/hdl/interrupt_v1_0_S00_AXI.vhd)  
-🔗 [interrupt_v1_0.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/interrupt_1.0/hdl/interrupt_v1_0.vhd) 
-🔗 [interrupt_v1_0_S_AXI_INTR.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/interrupt_1.0/hdl/interrupt_v1_0_S_AXI_INTR.vhd)
+🔗 [counter_interrupt.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/counter_interrupt.vhd)  
+🔗 [HW2_interrupt_v1_0_S00_AXI.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/HW2_interrupt_v1_0_S00_AXI.vhd)  
+🔗 [HW2_interrupt_v1_0.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/HW2_interrupt_v1_0.vhd) 
+🔗 [HW2_interrupt_v1_0_S_AXI_INTR.vhd](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/ip_repo/HW2_interrupt_1.0/hdl/HW2_interrupt_v1_0_S_AXI_INTR.vhd)
 **說明：**  
 - counter_interrupt 模組 : 根據 HW1 的 counter 模組新增了接收中斷的訊號，當收到 stop 訊號就中斷計數  
 - 底層 vhd               : 沿用 HW1 暫存器的功能，新增了 slv_reg3 ，用來讀取軟體端的中斷訊號 ，還有 intr 輸出訊號用來連接外部中斷器 
@@ -23,7 +23,7 @@
 ---
 
 ##  C 程式碼  
-🔗 [main.c](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/HW_interrupt/HW_interrupt.sdk/interrupt/src/main.c)  
+🔗 [helloworld.c](https://github.com/yihong92/SOC/blob/main/HW2/HW2_%E5%AE%8C%E6%88%90%E4%B8%AD%E6%96%B7/HW2_interrupt/HW2_interrupt.sdk/HW2_interrupt/src/helloworld.c)  
 **說明：**  
 - 寫入 count_max 到 s_reg0，s_reg1 用來讀取目前計數值，s_reg2 用來讀取計數完成訊號，s_reg3輸出 stop 訊號給硬體，接受硬體發送的中斷完成訊號
 
