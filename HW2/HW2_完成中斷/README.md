@@ -30,7 +30,7 @@
 ---
 
 ##  Demo 影片  
-🔗[demo](https://www.youtube.com/shorts/D0Mgpbf1fFY)
+🔗[demo](https://youtube.com/shorts/2kZi8ciwUJs)
 
 ---
 
